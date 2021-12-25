@@ -7,7 +7,7 @@ public class Main {
 	    System.out.println(new Main().solution(input));
     }
 
-	public int solution(int N) {
+	public int solution(final int N) {
 		byte maxGap = 0;
 		byte gap = 0;
 		for (int i = 1; i < Integer.MAX_VALUE && i>0; i = i << 1) {
@@ -17,9 +17,8 @@ public class Main {
 
 			int res = N & i;
 			if (res>0) {
-				if (gap==0) {
+				if (gap==0)
 					gap = 1;
-				}
 				else { // gap > 0
 					if (maxGap < gap)
 						maxGap = gap;
@@ -30,9 +29,8 @@ public class Main {
 				if (gap>0)
 					gap++;
 				else
-				if (maxGap>0) {
+				if (maxGap>0)
 					gap = 2;
-				}
 		}
 
 		return maxGap>0 ? maxGap-1 : 0;
